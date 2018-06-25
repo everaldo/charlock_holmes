@@ -54,6 +54,7 @@ have_library 'z' or abort 'libz missing'
 have_library 'icuuc' or abort 'libicuuc missing'
 have_library 'icudata' or abort 'libicudata missing'
 
+$CXXFLAGS = '' if $CXXFLAGS.nil?
 # icu4c might be built in C++11 mode, but it also might not have been
 icuconfig = `which icu-config`.chomp if icuconfig.empty?
 if File.exist?(icuconfig) && `#{icuconfig} --cxxflags`.include?("c++11")
